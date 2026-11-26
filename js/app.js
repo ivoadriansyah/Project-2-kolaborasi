@@ -1,4 +1,35 @@
 const STORAGE_KEY = 'patungan_yuk_data_v1';
+const THEME_STORAGE_KEY = 'patungan_yuk_theme';
+
+function getInitialTheme() {
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+        return savedTheme;
+    }
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+}
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+        const isDark = theme === 'dark';
+        toggleBtn.textContent = isDark ? '☀️' : '🌙';
+        toggleBtn.setAttribute('aria-label', isDark ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
+        toggleBtn.setAttribute('title', isDark ? 'Mode Terang' : 'Mode Gelap');
+    }
+}
+
+document.getElementById('theme-toggle').addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    applyTheme(nextTheme);
+});
+
+applyTheme(getInitialTheme());
 
 // State awal
 let state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {

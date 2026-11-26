@@ -5,9 +5,27 @@
   --danger: #dc2626;
   --bg: #f8fafc;
   --card: #ffffff;
+  --input-bg: #ffffff;
+  --chip-bg: #eff6ff;
   --text: #1e293b;
   --muted: #64748b;
   --border: #e2e8f0;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] {
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --bg: #0f172a;
+  --card: #1e293b;
+  --input-bg: #0f172a;
+  --chip-bg: rgba(59, 130, 246, 0.18);
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --border: #334155;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -22,6 +40,7 @@ body {
   color: var(--text);
   line-height: 1.5;
   padding: 16px;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .container {
@@ -39,11 +58,60 @@ header h1 {
   margin-bottom: 8px;
 }
 
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow);
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow);
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
 #event-title {
   text-align: center;
   font-weight: 600;
   border: 1px dashed var(--border);
   background: transparent;
+  color: var(--text);
 }
 
 .card {
@@ -52,7 +120,8 @@ header h1 {
   border-radius: 12px;
   padding: 18px;
   margin-bottom: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 h2 {
@@ -69,6 +138,13 @@ input[type="number"] {
   border-radius: 8px;
   font-size: 0.95rem;
   margin-bottom: 10px;
+  background-color: var(--input-bg);
+  color: var(--text);
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+input::placeholder {
+  color: var(--muted);
 }
 
 label {
@@ -121,7 +197,7 @@ button:hover {
 }
 
 .chip {
-  background: #eff6ff;
+  background: var(--chip-bg);
   color: var(--primary);
   padding: 6px 12px;
   border-radius: 20px;
@@ -152,6 +228,7 @@ button:hover {
   align-items: center;
   gap: 4px;
   background: var(--bg);
+  color: var(--text);
   border: 1px solid var(--border);
   padding: 4px 10px;
   border-radius: 6px;
