@@ -1,0 +1,208 @@
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #e2e8f0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 16px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+#event-title {
+  text-align: center;
+  font-weight: 600;
+  border: 1px dashed var(--border);
+  background: transparent;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.inline-form {
+  display: flex;
+  gap: 8px;
+}
+
+.inline-form input {
+  margin-bottom: 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-success { background: var(--success); color: #fff; flex: 1; }
+.btn-danger  { background: var(--danger); color: #fff; }
+.full-width  { width: 100%; }
+
+/* Chips Anggota */
+.chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.chip {
+  background: #eff6ff;
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chip button {
+  background: none;
+  color: var(--danger);
+  padding: 0 4px;
+  font-size: 1rem;
+}
+
+/* Checkbox Pembagian Item */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.checkbox-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* List Item */
+.item-list {
+  list-style: none;
+  margin-top: 14px;
+}
+
+.item-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.item-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Hasil Ringkasan */
+.summary-total {
+  background: var(--bg);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+@media (max-width: 480px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
